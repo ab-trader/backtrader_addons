@@ -56,31 +56,28 @@ if __name__ == '__main__':
 
     # alphavantage data types and related bt parameters
     alphavantage_datas = {
-        'INTRADAY': ['intraday_%dmin' % interval, bt.TimeFrame.Minutes,
-                     interval],
-        'DAILY': ['daily', bt.TimeFrame.Days, 1],
-        'DAILY_ADJUSTED': ['daily_adjusted', bt.TimeFrame.Days, 1],
-        'WEEKLY': ['weekly', bt.TimeFrame.Weeks, 1],
-        'WEEKLY_ADJUSTED': ['weekly_adjusted', bt.TimeFrame.Weeks, 1],
-        'MONTHLY': ['monthly', bt.TimeFrame.Months, 1],
-        'MONTHLY_ADJUSTED': ['monthly_adjusted', bt.TimeFrame.Months, 1],
+        'INTRADAY': [bt.TimeFrame.Minutes, interval],
+        'DAILY': [bt.TimeFrame.Days, 1],
+        'DAILY_ADJUSTED': [bt.TimeFrame.Days, 1],
+        'WEEKLY': [bt.TimeFrame.Weeks, 1],
+        'WEEKLY_ADJUSTED': [bt.TimeFrame.Weeks, 1],
+        'MONTHLY': [bt.TimeFrame.Months, 1],
+        'MONTHLY_ADJUSTED': [bt.TimeFrame.Months, 1],
     }
     
     d = alphavantage_datas[datatype]
-    modpath = os.path.dirname(os.path.abspath(__file__))
-    dataspath = '../datas'
-    ticker = d[0] + '_MSFT.csv'
 
-    datapath = os.path.join(modpath, dataspath, ticker)
+    # --- use case for Alphavantage data feed ---
+    data = bta.datafeeds.Alphavantage(dataname='MSFT', plot=True,
+                                        name='MSFT',
+                                        timeframe=d[0],
+                                        compression=d[1],
+                                        function=datatype,
+                                        interval=interval,
+                                        outputsize='compact',
+                                        apikey='YOUR_ALPHAVANTAGE_API_KEY')
+    # --- use case for Alphavantage data feed ---
 
-    # --- use case for Alphavantage CSV data feed ---
-    data = bta.datafeeds.AlphavantageCSV(dataname=datapath, plot=True,
-                                         name=ticker,
-                                         timeframe=d[1],
-                                         compression=d[2],
-                                         datatype=datatype)
-    # --- use case for Alphavantage CSV data feed ---
-    
     cerebro = bt.Cerebro()
     cerebro.addstrategy(DataTest, dt=datatype)
     cerebro.adddata(data)
