@@ -1,4 +1,4 @@
-pre-release 0.8.3
+release 0.8.3
  - added PremiumData CSV futures data feed (parses CSV files)
 
 release 0.7.2

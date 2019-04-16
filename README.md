@@ -1,4 +1,4 @@
-## backtrader_addons 0.7.2
+## backtrader_addons 0.8.3
 
 Set of add-ons for [backtrader](http://www.backtrader.com) - Python trading strategy backtesting library.
 
@@ -6,6 +6,7 @@ Set of add-ons for [backtrader](http://www.backtrader.com) - Python trading stra
 
  - Alphavantage CSV data feed (parses CSV files)
  - Alphavantage data feed (direct download)
+ - PremiumData futures CSV data feed (parses CSV files)
 
 ### Installation
 
