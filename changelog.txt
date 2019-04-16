@@ -1,3 +1,6 @@
+pre-release 0.8.3
+ - added PremiumData CSV futures data feed (parses CSV files)
+
 release 0.7.2
  - added Alphavantage CSV data feed (parses CSV files)
  - added Alphavantage data feed (direct download)
