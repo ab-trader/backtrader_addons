@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='backtrader_addons',
-    version='0.0.0',
+    version='0.7.2',
     description='Addons (analyzers, observers, indicators etc) for backtrader',
     url='https://github.com/ab-trader/backtrader_addons',
     author='ab-trader',
