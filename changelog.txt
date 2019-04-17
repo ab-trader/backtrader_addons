@@ -1,5 +1,6 @@
-pre-release 0.9.4
+pre-release 0.10.7
  - added trade_list analyzers (return closed trades table)
+ - added dradown and drawdown length observers (modified)
 
 release 0.8.3
  - added PremiumData CSV futures data feed (parses CSV files)
