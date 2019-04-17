@@ -38,10 +38,10 @@ class SmaCross(bt.SignalStrategy):
     def next(self):
 
         if self.signal > 0:
-            self.order_target_size(target=-50)
+            self.order_target_size(target=50)
         
         elif self.signal < 0:
-            self.order_target_size(target=50)
+            self.order_target_size(target=-50)
 
 
 if __name__ == '__main__':
