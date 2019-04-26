@@ -1,4 +1,4 @@
-## backtrader_addons 0.10.7
+## backtrader_addons 0.14.8
 
 Set of add-ons for [backtrader](http://www.backtrader.com) - Python trading strategy backtesting library.
 
@@ -8,7 +8,8 @@ Set of add-ons for [backtrader](http://www.backtrader.com) - Python trading stra
  - Alphavantage data feed (direct download)
  - PremiumData futures CSV data feed (parses CSV files)
  - trade_list analyzer (return closed trades table)
- - dradown and drawdown length observers (modified)
+ - drawdown and drawdown length observers (modified)
+ - stop/limit order tracking observer (keep tracking of stop and limit order prices)
 
 ### Installation
 
@@ -30,4 +31,4 @@ A.B.C
 
 ### License
 
-This project is licensed under the GPL v3 License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GPL v3 License - see the [LICENSE](LICENSE) file for details
