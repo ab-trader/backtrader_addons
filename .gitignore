@@ -1,2 +1,3 @@
 backtrader_addons.egg-info/
 __pycache__/
+backtrader_addons/bokeh/default_bt_plotting_options.txt

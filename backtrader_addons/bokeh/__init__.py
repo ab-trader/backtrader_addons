@@ -16,9 +16,4 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-__version__ = '0.14.8'
-
-from . import analyzers as analyzers
-from . import datafeeds as datafeeds
-from . import observers as observers
-from . import bokeh as bokeh
+from .plotter import *
