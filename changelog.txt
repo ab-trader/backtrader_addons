@@ -1,3 +1,7 @@
+pre-release 0.14.8
+ - added stop/limit order tracking observer (keep tracking of stop and limit order prices)
+ - corrected signal generation in the couple test strategies
+
 release 0.10.7
  - added trade_list analyzer (return closed trades table)
  - added dradown and drawdown length observers (modified)
