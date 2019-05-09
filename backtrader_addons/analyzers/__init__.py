@@ -17,3 +17,4 @@ from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
 from .trade_list import *
+from .limited_test_report import *

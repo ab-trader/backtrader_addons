@@ -1,5 +1,6 @@
-pre-release 0.15.8
+pre-release 0.16.9
  - added dollar value MFE and MAE to trade_list analyzer
+ - added limited test report analyzer
 
 release 0.14.8
  - added stop/limit order tracking observer (keep tracking of stop and limit order prices)
