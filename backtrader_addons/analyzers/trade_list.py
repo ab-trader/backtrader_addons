@@ -38,6 +38,8 @@ class trade_list(bt.Analyzer):
       - ``cumpnl``: cumulative profit/loss for trades shown before this trade
       - ``nbars``: average trade duration in price bars
       - ``pnl/bar``: average profit/loss per bar
+      - ``mfe``: max favorable excursion in $s from entry price
+      - ``mae``: max adverse excursion in $s from entry price
       - ``mfe%``: max favorable excursion in % of entry price
       - ``mae%``: max adverse excursion in % of entry price
     '''
@@ -85,14 +87,18 @@ class trade_list(bt.Analyzer):
 
             highest_in_trade = max(trade.data.high.get(ago=0, size=barlen+1))
             lowest_in_trade = min(trade.data.low.get(ago=0, size=barlen+1))
-            hp = 100 * (highest_in_trade - pricein) / pricein
-            lp = 100 * (lowest_in_trade - pricein) / pricein
+            hp = highest_in_trade - pricein
+            lp = lowest_in_trade - pricein
             if dir == 'long':
-                mfe = hp
-                mae = lp
+                mfe0 = hp
+                mae0 = lp
+                mfe = 100 * hp / pricein
+                mae = 100 * lp / pricein
             if dir == 'short':
-                mfe = -lp
-                mae = -hp
+                mfe0 = -lp
+                mae0 = -hp
+                mfe = -100 * lp / pricein
+                mae = -100 * hp / pricein
 
             self.trades.append({'ref': trade.ref, 'ticker': trade.data._name,
                 'dir': dir, 'datein': datein, 'pricein': pricein,
@@ -100,5 +106,6 @@ class trade_list(bt.Analyzer):
                  'chng%': round(pcntchange, 2), 'pnl': pnl,
                  'pnl%': round(pnlpcnt, 2), 'size': size, 'value': value,
                  'cumpnl': self.cumprofit, 'nbars': barlen,
-                 'pnl/bar': round(pbar, 2), 'mfe%': round(mfe, 2),
+                 'pnl/bar': round(pbar, 2), 'mfe': round(mfe0, 2),
+                 'mae': round(mae0, 2), 'mfe%': round(mfe, 2),
                  'mae%': round(mae, 2)})
