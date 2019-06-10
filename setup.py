@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(name='backtrader_addons',
     version='0.14.8',
@@ -7,7 +7,8 @@ setup(name='backtrader_addons',
     author='ab-trader',
     author_email='',
     license='GPLv3+',
-    packages=['backtrader_addons'],
+    packages=find_packages(),
+    # packages=['backtrader_addons'],
 	install_requires=[ 'backtrader',
 	                 ],
     zip_safe=False)
