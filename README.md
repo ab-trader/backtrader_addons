@@ -1,4 +1,4 @@
-## backtrader_addons 0.14.8
+## backtrader_addons 0.17.9
 
 Set of add-ons for [backtrader](http://www.backtrader.com) - Python trading strategy backtesting library.
 
@@ -10,6 +10,7 @@ Set of add-ons for [backtrader](http://www.backtrader.com) - Python trading stra
  - trade_list analyzer (return closed trades table)
  - drawdown and drawdown length observers (modified)
  - stop/limit order tracking observer (keep tracking of stop and limit order prices)
+ - limited test report analyzer
 
 ### Installation
 

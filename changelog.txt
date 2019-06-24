@@ -1,4 +1,4 @@
-pre-release 0.17.9
+release 0.17.9
  - added dollar value MFE and MAE to trade_list analyzer
  - added limited test report analyzer
  - fixed package list definition in the module setup
