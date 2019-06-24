@@ -1,4 +1,4 @@
-    # Copyright (C) 2019  ab-trader
+# Copyright (C) 2019  ab-trader
 
     # This program is free software: you can redistribute it and/or modify
     # it under the terms of the GNU General Public License as published by
@@ -16,9 +16,33 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-__version__ = '0.17.9'
+import os.path
 
-from . import analyzers as analyzers
-from . import datafeeds as datafeeds
-from . import observers as observers
-from . import indicators as indicators
+import backtrader as bt
+import backtrader_addons as bta
+
+class TestStrategy(bt.Strategy):
+
+    def __init__(self):
+
+    # --- initialize UpDownNumber indicator ---
+         self.ind = bta.indicators.UpDownNumber()
+    # --- initialize UpDownNumber indicator ---
+
+
+if __name__ == '__main__':
+
+    modpath = os.path.dirname(os.path.abspath(__file__))
+    dataspath = '../datas'
+    ticker = 'daily_MSFT.csv'
+    datapath = os.path.join(modpath, dataspath, ticker)
+
+    cerebro = bt.Cerebro()
+
+    data = bta.datafeeds.AlphavantageCSV(dataname=datapath, datatype='daily')
+    cerebro.adddata(data)
+
+    cerebro.addstrategy(TestStrategy)
+    strats = cerebro.run()
+
+    cerebro.plot(style='candle')

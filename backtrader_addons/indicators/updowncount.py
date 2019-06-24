@@ -16,9 +16,31 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-__version__ = '0.17.9'
+import backtrader as bt
 
-from . import analyzers as analyzers
-from . import datafeeds as datafeeds
-from . import observers as observers
-from . import indicators as indicators
+
+class UpDownNumber(bt.Indicator):
+    '''
+    Counts number of up (positive value) or down (negative value) candles in
+    a row
+    '''
+
+    lines = ('count',)
+
+    plotinfo = dict(plot=True, subplot=True)
+
+
+    def __init__(self):
+
+        c = self.data.close
+        o = self.data.open
+        self.k = (c > o) - (o > c)
+        self.lines.count = bt.LineNum(0)
+
+
+    def next(self):
+
+        if self.k[0] == self.k[-1]:
+            self.lines.count[0] = self.lines.count[-1] + self.k[0]
+        else:
+            self.lines.count[0] = self.k[0]

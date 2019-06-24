@@ -16,9 +16,5 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-__version__ = '0.17.9'
 
-from . import analyzers as analyzers
-from . import datafeeds as datafeeds
-from . import observers as observers
-from . import indicators as indicators
+from .updowncount import *

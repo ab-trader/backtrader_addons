@@ -1,3 +1,6 @@
+pre-release 0.18.10
+ - added up/down candle counting indicator
+
 release 0.17.9
  - added dollar value MFE and MAE to trade_list analyzer
  - added limited test report analyzer
