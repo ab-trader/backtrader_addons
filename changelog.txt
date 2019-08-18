@@ -1,4 +1,4 @@
-pre-release 0.18.10
+release 0.18.10
  - added up/down candle counting indicator
 
 release 0.17.9
