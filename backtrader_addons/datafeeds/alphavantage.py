@@ -150,7 +150,8 @@ class Alphavantage(AlphavantageCSV):
             urlargs.append('apikey={}'.format(self.p.apikey))
 
         urlargs.append('datatype=csv')
-
+        urlargs.append(f'outputsize={outputsize}')
+        
         if urlargs:
             url += '&' + '&'.join(urlargs)
 
