@@ -139,8 +139,8 @@ class Alphavantage(AlphavantageCSV):
 
         self.error = None
 
-        url = '{}function=TIME_SERIES_{}&symbol={}'.format(
-            self.p.baseurl, self.p.function, urlquote(self.p.dataname))
+        url = '{}function=TIME_SERIES_{}&symbol={}&outputsize={}'.format(
+            self.p.baseurl, self.p.function, urlquote(self.p.dataname), self.p.outputsize)
 
         urlargs = []
         if self.p.function == 'INTRADAY':
